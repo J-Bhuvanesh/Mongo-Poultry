@@ -52,7 +52,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'Poultry.urls'
@@ -75,7 +74,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Poultry.wsgi.application'
 
+DATABASES = {
+"default": {
+    'ENGINE': 'djongo',
 
+    "CLIENT": {
+        "host":"mongodb+srv://poultry:poultry@cluster0.gdeon.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+
+    },
+}}
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 #
@@ -91,17 +98,6 @@ WSGI_APPLICATION = 'Poultry.wsgi.application'
 #         },
 #     }
 # }
-DATABASES = {
-"default": {
-    'ENGINE': 'djongo',
-
-    "CLIENT": {
-        "host":"mongodb+srv://poultry:poultry@cluster0.gdeon.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-
-    },
-}}
-
-
 
 
 # Password validation
@@ -140,30 +136,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 import  os
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-# CORS_ORIGIN_ALLOW_ALL = True
-# CORS_ALLOW_CREDENTIALS = False
-
-#
-# CSRF_COOKIE_SECURE = False
-# CSRF_COOKIE_HTTPONLY = False
-
-# SESSION_COOKIE_SECURE = True
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
