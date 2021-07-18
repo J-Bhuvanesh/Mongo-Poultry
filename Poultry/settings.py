@@ -79,8 +79,10 @@ DATABASES = {
     'ENGINE': 'djongo',
 
     "CLIENT": {
-        "host":"mongodb+srv://poultry:poultry@cluster0.gdeon.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-
+        "host":"mongodb+srv://poultry:poultry@cluster0.jyuc1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+        # "host":"mongodb+srv://poultry:poultry@cluster0.gdeon.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+        # "host":"mongodb+srv://poultry:poultry@cluster0-shard-00-01.gdeon.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+        # "host":"mongodb+srv://poultry:poultry@bhuvanesh.a5uil.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
     },
 }}
 # Database
