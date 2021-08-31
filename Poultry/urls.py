@@ -18,9 +18,10 @@ from django.urls import path
 from django.conf.urls import url
 from django.conf.urls import include
 from newbatch import urls
+from .views import homepage
 
 urlpatterns = [
-
-    url(r'api/v1/batch/', include('newbatch.urls'), name="NewBatch Api's"),
+    url(r'^$',homepage,name="home page views"),
+    url(r'^api/v1/batch/', include('newbatch.urls'), name="NewBatch Api's"),
 
 ]
