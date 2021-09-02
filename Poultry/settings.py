@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
-
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -74,34 +73,31 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Poultry.wsgi.application'
 
-DATABASES = {
-"default": {
-    'ENGINE': 'djongo',
+# DATABASES = {
+# "default": {
+#     'ENGINE': 'djongo',
+#
+#     "CLIENT": {
+#         "host":"mongodb+srv://poultry:poultry@cluster0.jyuc1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+#     },
+# }}
 
-    "CLIENT": {
-        "host":"mongodb+srv://poultry:poultry@cluster0.jyuc1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-        # "host":"mongodb+srv://poultry:poultry@cluster0.gdeon.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-        # "host":"mongodb+srv://poultry:poultry@cluster0-shard-00-01.gdeon.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-        # "host":"mongodb+srv://poultry:poultry@bhuvanesh.a5uil.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-    },
-}}
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 #
-# DATABASES = {
-#         'default': {
-#         'HOST': config('db_host'),
-#         'NAME': config('db_name'),
-#         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-#         'USER': config('db_user'),
-#         'PASSWORD': config('db_pass'),
-#         'OPTIONS': {
-#             # 'autocommit': True,
-#         },
-#     }
-# }
 
+DATABASES = {
+        'default': {
+        'HOST': config('db_host'),
+        'NAME': config('db_name'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'USER': config('db_user'),
+        'PASSWORD': config('db_pass'),
 
+    }
+}
+
+FILE_UPLOAD_HANDLERS = ['django.core.files.uploadhandler.TemporaryFileUploadHandler']
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 

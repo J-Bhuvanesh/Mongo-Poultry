@@ -13,3 +13,9 @@ class NewBatch(models.Model):
 
     class Meta:
         db_table="all_batch"
+
+class ImageFile(models.Model):
+    image_data = models.BinaryField(null=True)
+
+    class Meta:
+        db_table="image"
